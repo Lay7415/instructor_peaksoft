@@ -2,11 +2,8 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 import styled from 'styled-components'
-import { useNavigate, useParams } from 'react-router'
-import {
-   addNewLessonByCourseId,
-   getMaterialsByCourseId,
-} from '../../store/instructorCoursesSlice'
+import { useNavigate } from 'react-router'
+import { getMaterialsByCourseId } from '../../store/instructorCoursesSlice'
 import { FlexCards } from '../UI/FlexCards'
 import { MODAL_TYPES } from '../../utils/constants/constants'
 import { LessonCard } from '../UI/LessonCard'
@@ -21,15 +18,15 @@ const StudentMaterials = ({ coursesId }) => {
       dispatch(getMaterialsByCourseId(coursesId))
    }, [])
 
-   const openLessonModal = () => {
-      setSearchParams({ tabs, modal: MODAL_TYPES.ADDNEWLESSON })
-   }
+   // const openLessonModal = () => {
+   //    setSearchParams({ tabs, modal: MODAL_TYPES.ADDNEWLESSON })
+   // }
 
-   const addNewLesson = (lessonName) => {
-      dispatch(
-         addNewLessonByCourseId({ name: lessonName, courseId: coursesId })
-      )
-   }
+   // const addNewLesson = (lessonName) => {
+   //    dispatch(
+   //       addNewLessonByCourseId({ name: lessonName, courseId: coursesId })
+   //    )
+   // }
 
    const openDeleteLessonModal = (lessonId) => {
       setSearchParams({ tabs, modal: MODAL_TYPES.DELETELESSON, lessonId })
@@ -62,6 +59,7 @@ const StudentMaterials = ({ coursesId }) => {
    return (
       <FlexCards>
          {materials.map((lesson) => {
+            console.log(lesson)
             return (
                <LessonCard
                   openTaskHandler={() => openTasksPreview(lesson.taskId)}
@@ -89,10 +87,3 @@ const StudentMaterials = ({ coursesId }) => {
    )
 }
 export default StudentMaterials
-
-const Flex = styled.div`
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   margin-top: 20px;
-`

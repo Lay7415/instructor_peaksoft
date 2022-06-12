@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { toast } from 'react-toastify'
 import { baseFetch } from '../api/baseFetch'
-import { fileFetchApi } from '../api/fileFetchApi'
 
 export const getStudentCourses = createAsyncThunk(
    'admin/slice/getStudentCourses',
@@ -15,7 +14,6 @@ export const getStudentCourses = createAsyncThunk(
                size: 1000,
             },
          })
-         console.log(response)
          return response
       } catch (error) {
          return rejectWithValue(error.message)

@@ -19,7 +19,7 @@ export const Layout = ({ roles, children }) => {
 
 const StyledBox = styled(Box)`
    width: 100%;
-   padding: 14px 20px 14px 20px;
+   padding: 14px 40px 14px 20px;
    margin-left: 240px;
    ${media.mobile`
        margin-left: 0;

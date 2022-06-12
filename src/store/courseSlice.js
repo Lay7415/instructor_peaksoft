@@ -22,6 +22,7 @@ export const getCourseList = createAsyncThunk(
       }
    }
 )
+
 export const createCourse = createAsyncThunk(
    'admin/slice/createCourse',
    async (groupInfo, { rejectWithValue }) => {
@@ -169,6 +170,8 @@ const initState = {
    coursesDetails: [],
    currentPage: 0,
    teachers: [],
+   studentCourses: [],
+   test: {},
 }
 export const courseSlice = createSlice({
    name: 'course/slice',
@@ -185,7 +188,6 @@ export const courseSlice = createSlice({
          const error = actions.payload
          toast.error(` ${error}`)
       },
-
       [sendPhoto.fulfilled]: () => {
          toast.success('файл успешно сохранен')
       },

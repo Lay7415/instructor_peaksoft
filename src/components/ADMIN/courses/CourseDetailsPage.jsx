@@ -18,6 +18,7 @@ export const CourseInnerPage = () => {
    const tabs = searchParams.get('tabs')
    const { coursesId } = useParams()
    const { coursesDetails } = useSelector((store) => store.courseSlice)
+   console.log(coursesDetails)
 
    const AppointTeacher = () => {
       setSearchParams({ modal: 'appointTeacherCourse', coursesId })
@@ -27,6 +28,7 @@ export const CourseInnerPage = () => {
       if (tabs === 'teachers') dispatch(getTeachersByCourseId(coursesId))
       if (tabs === 'students') dispatch(getStudentsByCourseId(coursesId))
    }, [tabs])
+
    const DATA_COLLUMN = {
       teachers: [
          {

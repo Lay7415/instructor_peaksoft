@@ -1,0 +1,7 @@
+         <ConditionalRender isActive={tabs === 'students'}>
+            <FlexButton>
+               <Buttons onClick={AppointTeacher} width="300px">
+                  Назначить ученика
+               </Buttons>
+            </FlexButton>
+         </ConditionalRender>

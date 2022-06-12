@@ -75,9 +75,6 @@ export const InstructorStudents = () => {
       })
    }
 
-   useEffect(()=> {
-      
-   },[])
    return (
       <div style={{ marginTop: '30px' }}>
          <IndexModal />
